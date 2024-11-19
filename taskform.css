@@ -1,0 +1,56 @@
+.postForm-container {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 25px auto;
+    width: 45%;
+    box-sizing: border-box;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #f5f5f5;
+}
+
+.postForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: sans-serif;
+}
+
+.postForm-container label {
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.postForm-container button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #007acc;
+    border-radius: 10px;
+    font-family: sans-serif;
+    color: #f5f5f5;
+    border: none;
+    cursor: pointer;
+}
+
+.postForm-container button:hover {
+    background-color: #585858;
+}
+
+.postForm-container input[type="text"],
+.postForm-container textarea,
+.postForm-container select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #2a2a2a;
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 10px;
+    color: #f5f5f5;
+}

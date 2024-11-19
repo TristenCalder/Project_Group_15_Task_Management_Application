@@ -1,0 +1,36 @@
+.completed-tasks-container {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 25px auto;
+    width: 50%;
+    box-sizing: border-box;
+    text-align: left;
+    color: #f5f5f5;
+}
+
+.completed-tasks-list {
+    margin-top: 30px;
+}
+
+.completed-task {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    font-family: sans-serif;
+    font-weight: bold;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.completed-task h4 {
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+
+.completed-task p {
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-weight: normal;
+    color: #f5f5f5;
+}

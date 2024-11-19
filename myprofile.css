@@ -1,0 +1,51 @@
+.profile-container {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 25px auto;
+    width: 50%;
+    box-sizing: border-box;
+    text-align: left;
+    color: #f5f5f5;
+}
+
+.profile-info {
+    margin-bottom: 25px;
+    font-family: sans-serif;
+}
+
+.profile-info p {
+    margin-top: 5px;
+}
+
+.profile-posts {
+    margin-top: 30px;
+}
+
+.profile-post {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    font-family: sans-serif;
+    font-weight: bold;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: #f5f5f5;
+}
+
+.profile-post h4 {
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+
+.profile-post p {
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-weight: normal;
+    color: #f5f5f5;
+}
+
+.overdue-indicator {
+    color: #ff4500;
+    font-weight: bold;
+}
