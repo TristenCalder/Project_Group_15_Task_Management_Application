@@ -1,0 +1,36 @@
+.star-rating {
+    display: flex;
+    cursor: pointer;
+}
+
+.star {
+    font-size: 1.5em;
+    color: #ddd;
+    transition: color 0.2s;
+    margin-right: 5px;
+}
+
+.star.active {
+    color: #f39c12;
+}
+
+/* Use before selector to highlight stars on hover */
+.star:hover,
+.star:hover ~ .star {
+    color: #ddd; /* Reset stars to the right */
+}
+
+/* Proper highlighting to the left on hover */
+.star:hover,
+.star:hover ~ .star {
+    color: #ddd;
+}
+
+.star:hover,
+.star-rating:hover .star {
+    color: #f39c12;
+}
+
+.star:hover ~ .star {
+    color: #ddd;
+}

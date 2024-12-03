@@ -6,9 +6,6 @@
     width: 45%;
     box-sizing: border-box;
     text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     color: #f5f5f5;
 }
 
@@ -19,23 +16,51 @@
     font-family: sans-serif;
 }
 
+.postForm-container .form-group {
+    margin-bottom: 15px;
+}
+
 .postForm-container label {
     font-weight: bold;
     font-family: sans-serif;
+    display: block;
     margin-top: 10px;
-    display: inline-block;
+}
+
+.postForm-container input[type="text"],
+.postForm-container textarea,
+.postForm-container select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #444;
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 10px;
+    color: #f5f5f5;
+}
+
+.postForm-container input[type="date"] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #555;
+    background-color: #2e2e2e;
+    border-radius: 4px;
+    margin: 10px 0;
+    padding: 10px;
+    color: #f5f5f5;
 }
 
 .postForm-container button {
     width: 100%;
-    margin-top: 20px;
-    padding: 12px;
     background-color: #007acc;
-    border-radius: 10px;
-    font-family: sans-serif;
-    color: #f5f5f5;
     border: none;
+    color: #f5f5f5;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .postForm-container button:hover {
@@ -54,3 +79,16 @@
     padding: 10px;
     color: #f5f5f5;
 }
+
+/* Specific styling for date input */
+.postForm-container input[type="date"] {
+    width: calc(100% - 10px);
+    box-sizing: border-box;
+    border: 2px solid #2a2a2a;
+    background-color: #2e2e2e;
+    border-radius: 4px;
+    margin: 10px 0;
+    padding: 10px;
+    color: #f5f5f5;
+}
+

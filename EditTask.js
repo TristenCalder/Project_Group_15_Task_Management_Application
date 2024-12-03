@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import './edittask.css'; // Ensure CSS is correctly referenced
+import './edittask.css';
 
 const EditTask = () => {
     const { id } = useParams();
@@ -9,45 +9,63 @@ const EditTask = () => {
     const [formData, setFormData] = useState({
         title: '',
         content: '',
-        category: '',
-        due_date: '' // Ensure this matches your new task schema
+        priority: '',
+        due_date: '',
+        assigned_to: '',
+        progress: 0
     });
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         const fetchTask = async () => {
             try {
-                const response = await axios.get(`/api/tasks/${id}`); // Ensure the endpoint matches
+                const response = await axios.get(`/api/tasks/${id}`);
+                const { title, body, priority, due_date, assigned_to_user_id, progress } = response.data;
                 setFormData({
-                    title: response.data.title,
-                    content: response.data.body,
-                    category: response.data.category,
-                    due_date: response.data.due_date,
+                    title,
+                    content: body,
+                    priority,
+                    due_date: due_date.substring(0, 10),
+                    assigned_to: assigned_to_user_id,
+                    progress
                 });
             } catch (error) {
                 alert('Failed to load task');
             }
         };
 
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get('/api/users');
+                setUsers(response.data);
+            } catch (error) {
+                alert('Failed to fetch users.');
+            }
+        };
+
         fetchTask();
+        fetchUsers();
     }, [id]);
 
     const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value});
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`/api/tasks/${id}`, { // Ensure the endpoint matches
+            await axios.put(`/api/tasks/${id}`, {
                 title: formData.title,
                 content: formData.content,
-                category: formData.category,
+                priority: formData.priority,
                 due_date: formData.due_date,
+                assigned_to: formData.assigned_to,
+                progress: formData.progress,
             });
             navigate('/tasks');
         } catch (error) {
-            console.error('Error updating task:', error.response || error.message);
-            alert('Failed to update task');
+            console.error('FAILED', error.response || error.message);
+            alert('FAILED');
         }
     };
 
@@ -63,17 +81,30 @@ const EditTask = () => {
                 <textarea name="content" onChange={handleChange}
                           value={formData.content} required/>
 
-                <label>Category:</label>
-                <select name="category" onChange={handleChange}
-                        value={formData.category} required>
-                    <option value="Work">Work</option>
-                    <option value="Personal">Personal</option>
-                    <option value="Other">Other</option>
+                <label>Priority:</label>
+                <select name="priority" onChange={handleChange} value={formData.priority} required>
+                    <option value="">Select Priority</option>
+                    <option value="Urgent">Urgent</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
                 </select>
 
                 <label>Due Date:</label>
                 <input type="date" name="due_date" onChange={handleChange}
                        value={formData.due_date} required/>
+
+                <label>Assign To:</label>
+                <select name="assigned_to" onChange={handleChange} value={formData.assigned_to} required>
+                    <option value="">Select User</option>
+                    {users.map(user => (
+                        <option key={user.id} value={user.id}>{user.name}</option>
+                    ))}
+                </select>
+
+                <label>Progress:</label>
+                <input type="range" name="progress" min="0" max="100" onChange={handleChange}
+                       value={formData.progress} required/>
+                <span>{formData.progress}%</span>
 
                 <button type="submit">Update Task</button>
             </form>

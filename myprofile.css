@@ -1,51 +1,81 @@
-.profile-container {
+.profile-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
     background-color: #2a2a2a;
-    border-radius: 10px;
-    padding: 25px;
-    margin: 25px auto;
-    width: 50%;
-    box-sizing: border-box;
-    text-align: left;
     color: #f5f5f5;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
 }
 
-.profile-info {
-    margin-bottom: 25px;
-    font-family: sans-serif;
+.profile-header, .profile-tasks-header {
+    text-align: center;
+    color: #007acc;
 }
 
-.profile-info p {
-    margin-top: 5px;
+.profile-details {
+    margin-bottom: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.profile-posts {
-    margin-top: 30px;
+.profile-card p {
+    margin: 10px 0;
+    line-height: 1.6;
 }
 
-.profile-post {
-    background-color: #2a2a2a;
+.profile-card strong {
+    color: #007acc;
+}
+
+.profile-task-list {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.profile-task {
+    background-color: #3a3a3a;
+    border: 1px solid #666;
     border-radius: 10px;
     padding: 20px;
-    margin: 15px 0;
-    font-family: sans-serif;
-    font-weight: bold;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    margin-top: 15px;
     color: #f5f5f5;
+    position: relative;
+    box-sizing: border-box;
 }
 
-.profile-post h4 {
-    font-family: sans-serif;
-    margin-bottom: 10px;
+.profile-task-completed {
+    background-color: #1e1e1e;
+    border-color: #00cc00;
 }
 
-.profile-post p {
-    margin-top: 10px;
-    font-family: sans-serif;
-    font-weight: normal;
-    color: #f5f5f5;
+.profile-task-completed h3,
+.profile-task-completed p {
+    text-decoration: line-through;
+    color: #a0a0a0;
 }
 
-.overdue-indicator {
-    color: #ff4500;
+.profile-task-overdue {
+    border-color: #ff3333;
+}
+
+.profile-overdue-indicator {
+    color: #ff6b6b;
     font-weight: bold;
+}
+
+.profile-completed-indicator {
+    color: #00cc00;
+    font-weight: bold;
+}
+
+.profile-error, .profile-no-tasks {
+    text-align: center;
+    color: #ff0000;
+    margin-top: 20px;
 }
